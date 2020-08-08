@@ -3,6 +3,8 @@ package com.oyhp.trend.service.impl;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.oyhp.trend.model.Index;
 import com.oyhp.trend.service.IndexService;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,12 +21,14 @@ import java.util.stream.Collectors;
  * @date 2020-08-08
  */
 @Service
+@CacheConfig(cacheNames = "indexes")
 public class IndexServiceImpl implements IndexService{
     @Resource
     private RestTemplate restTemplate;
 
     @Override
     @HystrixCommand(defaultFallback = "thirdPartNotConnected")
+    @Cacheable(key = "'all_codes'")
     public List<Index> fetchIndicesFromThirdPart(){
         String indexDataUrl = "http://127.0.0.1:8090/indexes/codes.json";
         List<Map> tempIndexes = restTemplate.getForObject(indexDataUrl,List.class);

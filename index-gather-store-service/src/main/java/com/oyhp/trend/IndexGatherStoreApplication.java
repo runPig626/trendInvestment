@@ -23,12 +23,16 @@ public class IndexGatherStoreApplication
     {
         int port;
         int defaultPort = 8001;
+        int redisPort = 6379;
         int eurekaServerPort = 8761;
         port = defaultPort ;
 
-        // 注册服务器必须已开启
+        // eureka注册服务器必须已启动
         Assert.isFalse(NetUtil.isUsableLocalPort(eurekaServerPort),
                 "检查到端口%d 未启用，判断 eureka 服务器没有启动，本服务无法使用，故退出%n", eurekaServerPort);
+        // redis服务必须已启用
+        Assert.isFalse(NetUtil.isUsableLocalPort(redisPort),
+                "检查到端口"+ redisPort +" 未启用，判断 redis 服务器没有启动，本服务无法使用，故退出%n");
         // 是否以参数启动
         port = ArgsUtil.checkArgsPort(args, port);
         // 第三方服务端口未被占用
