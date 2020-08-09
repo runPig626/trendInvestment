@@ -26,7 +26,8 @@
     <module>third-part-index-data-project</module>
     <module>index-gather-store-service</module>
       <module>index-codes-service</module>
-  </modules>
+        <module>index-data-service</module>
+    </modules>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
