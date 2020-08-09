@@ -3,7 +3,7 @@ package com.oyhp.trend.model;
 import java.io.Serializable;
 
 /**
- * 指数类，用于指数里的名称和代码
+ * 指数代码类，用于指数里的名称和代码
  * @author OuYangHaiPing<ouyanghaiping @ pvc123.com>
  * @date 2020-08-08
  */

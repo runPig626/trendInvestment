@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class QuartzConfiguration {
 
-    private static final int INTERVAL = 1;
+    private static final int INTERVAL = 8;
 
     /**
      * 定时任务
@@ -33,7 +33,7 @@ public class QuartzConfiguration {
     public Trigger weatherDataSyncTrigger(){
         // 调度器
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                .withIntervalInMinutes(INTERVAL).repeatForever();
+                .withIntervalInHours(INTERVAL).repeatForever();
         // 触发器
         return TriggerBuilder.newTrigger().forJob(weatherDataSyncJobDetail())
                 .withIdentity("indexDataSyncTrigger").withSchedule(scheduleBuilder).build();

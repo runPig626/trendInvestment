@@ -1,7 +1,7 @@
 package com.oyhp.trend.model;
 
 /**
- * 指数代码数据点，日期，收盘点
+ * 指数数据，日期，收盘点
  * @author OuYangHaiPing<ouyanghaiping @ pvc123.com>
  * @date 2020-08-09
  */
