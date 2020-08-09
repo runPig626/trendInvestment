@@ -42,9 +42,4 @@ public class IndexGatherStoreApplication
         new SpringApplicationBuilder(IndexGatherStoreApplication.class).properties("server.port=" + port).run(args);
     }
 
-    @Bean
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
 }
