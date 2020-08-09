@@ -17,4 +17,36 @@ public interface IndexService {
      * @return 指数数据
      */
     List<Index> fetchIndicesFromThirdPart();
+
+    /**
+     * 第三方服务未启动时，断熔方法
+     * @return 无效Index
+     */
+    List<Index> thirdPartNotConnected();
+
+    /**
+     * 清空redis缓存数据
+     */
+    void remove();
+
+    /**
+     * 获取redis缓存数据
+     * @return
+     */
+    List<Index> getIndexes();
+
+    /**
+     * 保存redis缓存数据
+     * @return
+     */
+    List<Index> store();
+
+    /**
+     * 刷新数据
+     * 1、先运行fetchIndicesFromThirdPart来获取数据
+     * 2、删除数据
+     * 3、保存数据
+     * @return
+     */
+    List<Index> fresh();
 }
