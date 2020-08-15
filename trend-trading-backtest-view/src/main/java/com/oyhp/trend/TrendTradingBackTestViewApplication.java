@@ -1,11 +1,13 @@
 package com.oyhp.trend;
 
+import brave.sampler.Sampler;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.NetUtil;
 import com.oyhp.trend.utils.ArgsUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -46,4 +48,10 @@ public class TrendTradingBackTestViewApplication
 
         new SpringApplicationBuilder(TrendTradingBackTestViewApplication.class).properties("server.port=" + port).run(args);
     }
+
+    @Bean
+    public Sampler defaultSampler() {
+        return Sampler.ALWAYS_SAMPLE;
+    }
+
 }
