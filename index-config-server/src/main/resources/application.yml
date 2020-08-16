@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: index-config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://gitee.com/runPig626/trendConfig/
+          searchPaths: respo
+          username: 13539111482@163.com
+          password: zxc3308433.
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
