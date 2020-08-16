@@ -28,10 +28,14 @@ public class TrendTradingBackTestViewApplication
         int port = 0;
         int defaultPort = 8041;
         int eurekaServerPort = 8761;
+        int configServerPort = 8060;
 
         Assert.isFalse(NetUtil.isUsableLocalPort(eurekaServerPort),
                 "检查到端口"+ eurekaServerPort +" 未启用，判断 eureka 服务器没有启动，本服务无法使用，故退出%n");
 
+        Assert.isFalse(NetUtil.isUsableLocalPort(configServerPort),
+                "检查到端口"+ eurekaServerPort +" 未启用，判断 配置服务器没有启动，本服务无法使用，故退出%n");
+        
         ArgsUtil.checkArgsPort(args, port);
 
         // 交互式端口启动
