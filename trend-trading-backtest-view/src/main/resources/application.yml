@@ -14,3 +14,11 @@ spring:
     cache: false
     servlet:
       content-type: text/html
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"

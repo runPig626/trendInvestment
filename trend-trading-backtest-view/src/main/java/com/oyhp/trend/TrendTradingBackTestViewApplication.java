@@ -29,6 +29,10 @@ public class TrendTradingBackTestViewApplication
         int defaultPort = 8041;
         int eurekaServerPort = 8761;
         int configServerPort = 8060;
+        int rabbitMqPort = 5672;
+
+        Assert.isFalse(NetUtil.isUsableLocalPort(rabbitMqPort),
+                "检查到端口"+ rabbitMqPort +" 未启用，判断 rabbitMQ 服务器没有启动，本服务无法使用，故退出%n");
 
         Assert.isFalse(NetUtil.isUsableLocalPort(eurekaServerPort),
                 "检查到端口"+ eurekaServerPort +" 未启用，判断 eureka 服务器没有启动，本服务无法使用，故退出%n");
